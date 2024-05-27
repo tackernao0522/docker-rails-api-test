@@ -4,8 +4,7 @@ FROM ruby:3.2.3
 RUN apt-get update -qq && \
     apt-get install -y curl gnupg && \
     curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs && \
-    apt-get install -y postgresql-client
+    apt-get install -y nodejs postgresql-client
 
 # アプリケーションディレクトリの作成
 RUN mkdir /myapp
