@@ -23,11 +23,11 @@ RUN bundle install
 # アプリケーションのソースコードをコピー
 COPY . /myapp
 
-# ポート3000を公開
-EXPOSE 3000
+# ポート3001を公開
+EXPOSE 3001
 
 # サーバーを起動
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001"]
 
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
