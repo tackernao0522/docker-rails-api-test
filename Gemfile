@@ -53,3 +53,5 @@ group :development do
 end
 
 gem 'rack-cors'
+
+gem "dockerfile-rails", ">= 1.6", :group => :development

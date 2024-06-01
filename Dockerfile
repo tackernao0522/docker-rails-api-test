@@ -23,11 +23,14 @@ RUN bundle install
 # アプリケーションのソースコードをコピー
 COPY . /myapp
 
-# ポート3001を公開
-EXPOSE 3001
+# 環境変数PORTを設定（デフォルトは3000）
+ENV PORT=3000
+
+# 指定されたポートを公開
+EXPOSE $PORT
 
 # サーバーを起動
-CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3001"]
+CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3000"]
 
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
