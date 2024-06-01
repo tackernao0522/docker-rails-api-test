@@ -56,6 +56,9 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   config.hosts << 'my_rails_api-api-1'
+  config.hosts << 'my-rails-api.fly.dev'
+  config.hosts << 'localhost'
+  config.hosts << '0.0.0.0'
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

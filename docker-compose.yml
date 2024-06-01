@@ -12,15 +12,15 @@ services:
 
   api:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0' -p ${PORT}"
+    command: bash -c "rm -f tmp/pids/server.pid && RAILS_ENV=development bundle exec rails s -b '0.0.0.0' -p ${PORT:-3000}"
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       MYAPP_DATABASE_PASSWORD: ${MYAPP_DATABASE_PASSWORD}
-      PORT: ${PORT:-3000} # デフォルトのポートは3000、環境変数が設定されていればその値を使用
+      PORT: ${PORT:-3000}
     volumes:
       - .:/myapp
     ports:
-      - "3001:3001"
+      - "3000:3000"
     depends_on:
       - db
     networks:
