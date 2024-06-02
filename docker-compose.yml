@@ -12,11 +12,13 @@ services:
 
   api:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && RAILS_ENV=development bundle exec rails s -b '0.0.0.0' -p ${PORT:-3000}"
+    command: bash -c "rm -f tmp/pids/server.pid && RAILS_ENV=production bundle exec rails s -b '0.0.0.0' -p ${PORT:-3000}"
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       MYAPP_DATABASE_PASSWORD: ${MYAPP_DATABASE_PASSWORD}
       PORT: ${PORT:-3000}
+      RAILS_ENV: production
+      NEXT_PUBLIC_API_URL: https://my-rails-api.fly.dev
     volumes:
       - .:/myapp
     ports:
