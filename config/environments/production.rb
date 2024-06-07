@@ -71,7 +71,7 @@ Rails.application.configure do
   config.hosts << 'my-rails-api.fly.dev'
   config.hosts << 'localhost'
   config.hosts << '0.0.0.0'
-  config.hosts << 'my-next-app-gules-theta.vercel.app'
+  config.hosts << 'my-next-app-pi-seven.vercel.app'
 
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
