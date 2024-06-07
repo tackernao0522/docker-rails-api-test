@@ -1,12 +1,10 @@
 # frozen_string_literal: true
-
-module Api
+module Api # rubocop:disable Layout/EmptyLineAfterMagicComment
   module V1
     class UsersController < ApplicationController # rubocop:disable Style/Documentation
       def create
-        # 　引数の条件に該当するデータがあればそれを返す。なければ新規作成する
-        user = User.find_or_create_by(provider: params[:provider], uid:
-        params[:uid], name: params[:name], email: params[:email])
+        user = User.find_or_create_by(provider: params[:provider], uid: params[:uid], name: params[:name],
+                                      email: params[:email])
         if user
           head :ok
         else
@@ -20,6 +18,7 @@ module Api
         user = User.find_by(email: params[:email])
         if user
           user.destroy
+          head :no_content # 成功レスポンスを追加
         else
           render json: { error: 'ユーザーが見つかりませんでした' }, status: :not_found
         end
